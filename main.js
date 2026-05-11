@@ -44,4 +44,52 @@ switch (opcao) {
                 console.log(`[${indice}] ${livro.getInfo()}`)});
         }
         break;
+
+    case 3:
+        if (livros.length === 0){
+            console.log("nenhum livro cadastrado");
+            break
+        }
+        console.log("\nlivros disponiveis: ");
+        livros.forEach((livro, indice) => {
+            console.log(`[${indice}] ${livro.getInfo}`)
+        })
+        let indice = parseInt(prompt("digite o indice do livro: "))
+      if(
+        isNaN(indice)||
+        indice<0||
+        indice>=livros.length
+      ){
+        console.log("indice invalido!")
+        break;
+      }
+      let livro = livros[indice];
+      let novoTitulo = prompt(`titulo (${livro.titulo}): `)
+      if (novoTitulo.trim() !== ""){  
+        livro.titulo = novoTitulo;
+      }
+
+      let novoAutor = prompt(`Autor (${livro.autor}): `)
+      if (novoAutor.trim() !== ""){  
+        livro.autor = novoAutor;
+      }
+
+      let novoGenero = prompt(`Genero (${livro.autor}): `)
+      if (novoGenero.trim() !== ""){  
+        livro.genero = novoGenero;
+      }
+
+      let novoAno = prompt(`Ano (${livro.anoPubli}): `)
+      if (novoTitulo.trim() !== ""){  
+        livro.anoPubli = parseInt(novoAno);
+      }
+
+      let novasPaginas = prompt(`Paginas (${livro.numPaginas}): `)
+      if (novasPaginas.trim() !== ""){  
+        livro.numPaginas = parseInt(novasPaginas);
+      }
+
+      console.log("Livro alterado!");
+      break;
 }
+
